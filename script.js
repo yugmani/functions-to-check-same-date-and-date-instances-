@@ -34,21 +34,65 @@ function dateInstances(date1, date2) {
 }
 
 // Test Cases:
+// console.log(
+//   dateInstances(
+//     new Date('2000/01/01 08:00:00'),
+//     new Date('2000/01/01 08:45:00')
+//   )
+// ); //Expected false
+// console.log(
+//   dateInstances(
+//     new Date('2000/01/01 08:00:00'),
+//     new Date('2000/01/01 08:00:00')
+//   )
+// ); //Expected  true
+// console.log(
+//   dateInstances(
+//     new Date('2001/01/01 08:00:00'),
+//     new Date('2000/01/01 08:00:00')
+//   )
+// ); //Expected  false
+
+// **************************************
+// 3. Check if one date is earlier than another
+//  **************************************
+
+// Write a function that takes as argument an object with the properties a and b, each containing a date instance
+// It should return true if date a is earlier than date b
+// It should return false otherwise
+
+function isEarlier(obj) {
+  return obj.a.getTime() < obj.b.getTime();
+}
+
+// Test Cases:
 console.log(
-  dateInstances(
-    new Date('2000/01/01 08:00:00'),
-    new Date('2000/01/01 08:45:00')
-  )
-); //Expected false
-console.log(
-  dateInstances(
-    new Date('2000/01/01 08:00:00'),
-    new Date('2000/01/01 08:00:00')
-  )
+  isEarlier({
+    a: new Date('2000/01/01 08:00:00'),
+    b: new Date('2000/01/01 08:45:00')
+  })
 ); //Expected  true
 console.log(
-  dateInstances(
-    new Date('2001/01/01 08:00:00'),
-    new Date('2000/01/01 08:00:00')
-  )
+  isEarlier({
+    a: new Date('2000/01/01 08:45:00'),
+    b: new Date('2000/01/01 08:00:00')
+  })
 ); //Expected  false
+console.log(
+  isEarlier({
+    a: new Date('2000/01/01 08:00:00'),
+    b: new Date('2000/01/01 08:00:00')
+  })
+); //Expected  false
+
+// **************************************
+// 2. Check if two dates are equal
+//  **************************************
+
+// **************************************
+// 2. Check if two dates are equal
+//  **************************************
+
+// **************************************
+// 2. Check if two dates are equal
+//  **************************************
