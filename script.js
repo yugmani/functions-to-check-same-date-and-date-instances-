@@ -114,22 +114,40 @@ function withinHour(a, b) {
 // }
 
 // Test Cases:
-console.log(
-  withinHour(new Date('2000/01/01 08:00:00'), new Date('2000/01/01 08:45:00'))
-); //Expected true
-console.log(
-  withinHour(new Date('2000/01/01 09:00:00'), new Date('2000/01/01 08:45:00'))
-); //Expected  true
-console.log(
-  withinHour(new Date('2000/01/01 08:00:00'), new Date('2000/01/01 09:45:00'))
-); //Expected  false
-console.log(
-  withinHour(new Date('2000/01/01 08:00:00'), new Date('2000/01/01 09:00:00'))
-); //Expected  true
+// console.log(
+//   withinHour(new Date('2000/01/01 08:00:00'), new Date('2000/01/01 08:45:00'))
+// ); //Expected true
+// console.log(
+//   withinHour(new Date('2000/01/01 09:00:00'), new Date('2000/01/01 08:45:00'))
+// ); //Expected  true
+// console.log(
+//   withinHour(new Date('2000/01/01 08:00:00'), new Date('2000/01/01 09:45:00'))
+// ); //Expected  false
+// console.log(
+//   withinHour(new Date('2000/01/01 08:00:00'), new Date('2000/01/01 09:00:00'))
+// ); //Expected  true
 
 // **************************************
-// 2. Check if two dates are equal
+// 5. Return the number of days between two dates
 //  **************************************
+
+// Write a function that takes two date instances as argument
+// It should return the number of days that lies between those dates
+
+//My Code
+function daysBetweenDates(a, b) {
+  return Math.abs(a - b) / (1000 * 60 * 60 * 24);
+}
+
+//Author's Code
+function daysBetweenDates(a, b) {
+  const dif = Math.abs(a - b);
+  return dif / 1000 / 60 / 60 / 24;
+}
+
+// Test Cases:
+console.log(daysBetweenDates(new Date('2020-06-11'), new Date('2020-06-01'))); //Expected 10
+console.log(daysBetweenDates(new Date('2000-01-01'), new Date('2020-06-01'))); //Expected 7457
 
 // **************************************
 // 2. Check if two dates are equal
