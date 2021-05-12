@@ -140,15 +140,36 @@ function daysBetweenDates(a, b) {
 }
 
 //Author's Code
-function daysBetweenDates(a, b) {
-  const dif = Math.abs(a - b);
-  return dif / 1000 / 60 / 60 / 24;
+// function daysBetweenDates(a, b) {
+//   const dif = Math.abs(a - b);
+//   return dif / 1000 / 60 / 60 / 24;
+// }
+
+// Test Cases:
+// console.log(daysBetweenDates(new Date('2020-06-11'), new Date('2020-06-01'))); //Expected 10
+// console.log(daysBetweenDates(new Date('2000-01-01'), new Date('2020-06-01'))); //Expected 7457
+
+// **************************************
+// 6. Add n days to an existing date
+//  **************************************
+
+// Write a function that takes as argument an object with the properties date and daysToAdd, containing a Javascript date and a number
+// It should add daysToAdd days to the date and return the number of milliseconds since January 1, 1970, 00:00:00 UTC
+
+//My Code
+// function addDays({ date, daysToAdd }) {
+//   let prevDays = date.getTime();
+//   let daysAdd = daysToAdd * 24 * 60 * 60 * 1000;
+//   return prevDays + daysAdd;
+// }
+
+//Author's Code
+function addDays({ date, daysToAdd }) {
+  const currentDays = date.getDate();
+  return date.setDate(currentDays + daysToAdd);
 }
 
 // Test Cases:
-console.log(daysBetweenDates(new Date('2020-06-11'), new Date('2020-06-01'))); //Expected 10
-console.log(daysBetweenDates(new Date('2000-01-01'), new Date('2020-06-01'))); //Expected 7457
-
-// **************************************
-// 2. Check if two dates are equal
-//  **************************************
+console.log(addDays({ date: new Date(Date.UTC(2000, 01, 01)), daysToAdd: 31 })); //Expected  952041600000
+console.log(addDays({ date: new Date(Date.UTC(2000, 01, 01)), daysToAdd: 10 })); //Expected  950227200000
+console.log(addDays({ date: new Date(Date.UTC(2000, 02, 28)), daysToAdd: 2 })); //Expected  954374400000
