@@ -170,6 +170,60 @@ function addDays({ date, daysToAdd }) {
 }
 
 // Test Cases:
-console.log(addDays({ date: new Date(Date.UTC(2000, 01, 01)), daysToAdd: 31 })); //Expected  952041600000
-console.log(addDays({ date: new Date(Date.UTC(2000, 01, 01)), daysToAdd: 10 })); //Expected  950227200000
-console.log(addDays({ date: new Date(Date.UTC(2000, 02, 28)), daysToAdd: 2 })); //Expected  954374400000
+// console.log(addDays({ date: new Date(Date.UTC(2000, 01, 01)), daysToAdd: 31 })); //Expected  952041600000
+// console.log(addDays({ date: new Date(Date.UTC(2000, 01, 01)), daysToAdd: 10 })); //Expected  950227200000
+// console.log(addDays({ date: new Date(Date.UTC(2000, 02, 28)), daysToAdd: 2 })); //Expected  954374400000
+
+// **************************************
+// 7. Calculate difference between two dates in hours, minutes, and seconds
+//  **************************************
+
+// This is a more difficult challenge
+// Write a function that takes two date instances as arguments
+// It should return an object with the properties 'hrs', 'min', and 'sec'
+// The corresponding values should display the absolute difference between the two dates in hours, minutes, and seconds
+
+//My Code
+// function timeDirrenece(a, b) {
+//   let diff = Math.abs(a - b);
+//   let hrs = Math.floor(diff / 1000 / 60 / 60);
+//   let min = Math.floor(diff / 1000 / 60 - hrs * 60);
+//   let sec = Math.floor(diff / 1000 - hrs * 60 * 60 - min * 60);
+//   let result = {};
+//   result.hrs = hrs;
+//   result.min = min;
+//   result.sec = sec;
+//   return result;
+// }
+
+//Author's Code
+function timeDirrenece(a, b) {
+  const dif = Math.abs(a - b);
+  const hrs = Math.floor(dif / 1000 / 60 / 60);
+  const min = Math.floor(dif / 1000 / 60) % (hrs * 60 || 60);
+  const sec = Math.floor(dif / 1000) % (min * 60 + hrs * 60 * 60 || 60);
+  return { hrs, min, sec };
+}
+
+// Test Cases:
+// console.log(
+//   timeDirrenece(
+//     new Date('2000/01/01 08:00:00'),
+//     new Date('2000/01/01 08:45:10')
+//   )
+// );
+// // Expected { hrs: 0, min: 45, sec: 10 }
+// console.log(
+//   timeDirrenece(
+//     new Date('2000/01/01 09:50:23'),
+//     new Date('2000/01/01 08:00:00')
+//   )
+// );
+// // Expected { hrs: 1, min: 50, sec: 23 }
+// console.log(
+//   timeDirrenece(
+//     new Date('2000/01/01 11:04:12'),
+//     new Date('2000/01/01 08:00:00')
+//   )
+// );
+// Expected { hrs: 3, min: 4, sec: 12 }
