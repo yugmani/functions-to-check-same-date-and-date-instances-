@@ -61,33 +61,71 @@ function dateInstances(date1, date2) {
 // It should return true if date a is earlier than date b
 // It should return false otherwise
 
+//My Code
 function isEarlier(obj) {
   return obj.a.getTime() < obj.b.getTime();
 }
 
+//Author's Code
+// function isEarlier( { a, b } ) {
+//    return a < b
+// }
+
 // Test Cases:
-console.log(
-  isEarlier({
-    a: new Date('2000/01/01 08:00:00'),
-    b: new Date('2000/01/01 08:45:00')
-  })
-); //Expected  true
-console.log(
-  isEarlier({
-    a: new Date('2000/01/01 08:45:00'),
-    b: new Date('2000/01/01 08:00:00')
-  })
-); //Expected  false
-console.log(
-  isEarlier({
-    a: new Date('2000/01/01 08:00:00'),
-    b: new Date('2000/01/01 08:00:00')
-  })
-); //Expected  false
+// console.log(
+//   isEarlier({
+//     a: new Date('2000/01/01 08:00:00'),
+//     b: new Date('2000/01/01 08:45:00')
+//   })
+// ); //Expected  true
+// console.log(
+//   isEarlier({
+//     a: new Date('2000/01/01 08:45:00'),
+//     b: new Date('2000/01/01 08:00:00')
+//   })
+// ); //Expected  false
+// console.log(
+//   isEarlier({
+//     a: new Date('2000/01/01 08:00:00'),
+//     b: new Date('2000/01/01 08:00:00')
+//   })
+// ); //Expected  false
 
 // **************************************
-// 2. Check if two dates are equal
+// 4. Check if two dates are within 1 hour from each other
 //  **************************************
+
+// Write a function that takes two date instances as argument
+// It should return true if the difference between the dates is less than or equal to 1 hour
+// It should return false otherwise
+
+//My Code
+function withinHour(a, b) {
+  if (a.getTime() < b.getTime()) {
+    return b.getTime() - a.getTime() <= 3600000;
+  } else {
+    return a.getTime() - b.getTime() <= 3600000;
+  }
+}
+
+//Author's Code
+// function withinHour( a, b ) {
+//    return Math.abs( a - b) / 1000 / 60 <= 60
+// }
+
+// Test Cases:
+console.log(
+  withinHour(new Date('2000/01/01 08:00:00'), new Date('2000/01/01 08:45:00'))
+); //Expected true
+console.log(
+  withinHour(new Date('2000/01/01 09:00:00'), new Date('2000/01/01 08:45:00'))
+); //Expected  true
+console.log(
+  withinHour(new Date('2000/01/01 08:00:00'), new Date('2000/01/01 09:45:00'))
+); //Expected  false
+console.log(
+  withinHour(new Date('2000/01/01 08:00:00'), new Date('2000/01/01 09:00:00'))
+); //Expected  true
 
 // **************************************
 // 2. Check if two dates are equal
